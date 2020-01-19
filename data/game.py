@@ -15,7 +15,7 @@ class Game:
         lizard.addBeats(paper, spock)
         spock.addBeats(rock, scissors)
 
-        self.__movesMap = dict((move.id, move) for move in [rock, paper, scissors, lizard, spock])
+        self.__movesMap = dict((move.getId(), move) for move in [rock, paper, scissors, lizard, spock])
 
     def getAllMoves(self):
         return self.__movesMap.values()

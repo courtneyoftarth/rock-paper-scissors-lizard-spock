@@ -2,15 +2,24 @@ class Move:
     count = 0
 
     def __init__(self, name):
-        self.name = name
-        self.beats = []
+        self.__name = name
+        self.__beats = []
 
         Move.count += 1
-        self.id = Move.count
+        self.__id = Move.count
     
     def addBeats(self, *others):
         for other in others:
-            self.beats.append(other.id)
+            self.__beats.append(other.__id)
 
     def isWinner(self, other):
-        return other.id in self.beats
+        return other.__id in self.__beats
+
+    def getId(self):
+        return self.__id
+
+    def getSerialized(self):
+        return {
+            "id": self.__id,
+            "name": self.__name
+        }

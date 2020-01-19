@@ -11,12 +11,12 @@ game = Game()
 @app.route("/choice")
 def choice():
     move = game.getRandomMove()
-    return jsonify(move.__dict__)
+    return jsonify(move.getSerialized())
 
 @app.route("/choices")
 def choices():
     moves = game.getAllMoves()
-    return jsonify([move.__dict__ for move in moves])
+    return jsonify([move.getSerialized() for move in moves])
 
 @app.route("/play", methods = ["POST"])
 def play():
@@ -25,8 +25,8 @@ def play():
     computerMove = game.getRandomMove()
 
     return jsonify({
-        "computer": computerMove.id,
-        "player": playerMove.id,
+        "computer": computerMove.getId(),
+        "player": playerMove.getId(),
         "results": "win" if playerMove.isWinner(computerMove) else "lose" if computerMove.isWinner(playerMove) else "tie" 
     })
 
