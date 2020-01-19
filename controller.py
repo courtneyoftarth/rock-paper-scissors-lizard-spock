@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from data.choices import getChoices
+
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -11,7 +12,8 @@ def hello():
 
 @app.route("/choices")
 def choices():
-    return getChoices()
+    data = getChoices()
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run()
