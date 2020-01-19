@@ -1,13 +1,12 @@
 # Rock Paper Scissors Lizard Spock 
 This service supports a game of rock paper scissors lizard spock
 
-## Run the service
-Install dependencies
-- `pip install flask`
-- `pip install flask-cors`
-- `pip install unittest`
+## Prerequisites for running/testing
+Install pip
+Install dependencies: `pip install -r requirements.txt`
 
-Run `python controller.py`
+## Run the service
+Start the service: `python controller.py`
 
 ## Run the tests
 `python -m unittest discover -v test`
