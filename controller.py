@@ -1,6 +1,6 @@
 from flask import abort, Flask, jsonify, request
 from flask_cors import CORS
-from data.game import Game
+from model.game import Game
 
 
 app = Flask(__name__)

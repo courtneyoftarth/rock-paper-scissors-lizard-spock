@@ -1,5 +1,5 @@
 import unittest
-from data.move import Move
+from model.move import Move
 
 class TestMove(unittest.TestCase):
     def test_id_is_unique(self):

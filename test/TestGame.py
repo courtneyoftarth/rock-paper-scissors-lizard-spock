@@ -1,5 +1,5 @@
 import unittest
-from data.game import Game
+from model.game import Game
 
 game = Game()
 
