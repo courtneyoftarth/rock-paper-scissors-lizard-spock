@@ -1,5 +1,5 @@
 from random import choice
-from move import Move
+from .move import Move
 
 class Game:
     def __init__(self):
@@ -18,10 +18,10 @@ class Game:
         self.__movesMap = dict((move.getId(), move) for move in [rock, paper, scissors, lizard, spock])
 
     def getAllMoves(self):
-        return self.__movesMap.values()
+        return list(self.__movesMap.values())
 
     def getRandomMove(self):
-        return choice(self.__movesMap.values())
+        return choice(list(self.__movesMap.values()))
 
     def getMove(self, id):
         return self.__movesMap[id]
