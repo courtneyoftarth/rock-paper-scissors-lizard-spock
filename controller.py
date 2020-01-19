@@ -1,11 +1,11 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from data.choices import getChoice, getChoices
 from data.play import playMove
 
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "https://codechallenge.boohma.com"}})
 
 @app.route("/choice")
 def choice():
@@ -19,7 +19,7 @@ def choices():
 
 @app.route("/play", methods = ["POST"])
 def play():
-    data = playMove()
+    data = playMove(request.json['player'])
     return jsonify(data)
 
 if __name__ == "__main__":
