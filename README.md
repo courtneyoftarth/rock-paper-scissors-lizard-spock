@@ -8,5 +8,8 @@ Install dependencies
 
 Run `python controller.py`
 
+## Run the tests
+`python -m unittest discover test`
+
 ## Background
 http://www.samkass.com/theories/RPSSL.html
