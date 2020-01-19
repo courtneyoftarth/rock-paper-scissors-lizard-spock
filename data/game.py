@@ -25,3 +25,6 @@ class Game:
 
     def getMove(self, id):
         return self.__movesMap[id]
+
+    def hasMove(self, id):
+        return id in self.__movesMap

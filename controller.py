@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import abort, Flask, jsonify, request
 from flask_cors import CORS
 from data.game import Game
 
@@ -20,7 +20,13 @@ def choices():
 
 @app.route("/play", methods = ["POST"])
 def play():
+    if (request.json is None or request.json['player'] is None):
+        abort(400, "Expected parameter player")
+    
     moveId = request.json['player']
+    if (not game.hasMove(moveId)):
+        abort(400, "Parameter player is not a valid move id")
+
     playerMove = game.getMove(moveId)
     computerMove = game.getRandomMove()
 
