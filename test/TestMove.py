@@ -9,7 +9,7 @@ class TestMove(unittest.TestCase):
 
     def test_get_serialized(self):
         move = Move("test-move")
-        self.assertEqual(move.getSerialized(), {
+        self.assertEqual(move.getObjectValue(), {
             "id": move.getId(),
             "name": "test-move"
         })

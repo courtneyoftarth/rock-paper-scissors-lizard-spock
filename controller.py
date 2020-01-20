@@ -8,16 +8,21 @@ cors = CORS(app, resources={r"/*": {"origins": "https://codechallenge.boohma.com
 
 game = Game()
 
+# @returns: A list of possible moves
 @app.route("/choice")
 def choice():
     move = game.getRandomMove()
-    return jsonify(move.getSerialized())
+    return jsonify(move.getObjectValue())
 
+# @returns: A random move
 @app.route("/choices")
 def choices():
     moves = game.getAllMoves()
-    return jsonify([move.getSerialized() for move in moves])
+    return jsonify([move.getObjectValue() for move in moves])
 
+# Executes a round of RPSLS using the given player move and a random computer move
+# @param player: A move id
+# @returns: The moves the player and computer made, and who won.
 @app.route("/play", methods = ["POST"])
 def play():
     if (request.json is None or request.json['player'] is None):
