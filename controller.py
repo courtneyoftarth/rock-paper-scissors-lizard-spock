@@ -4,7 +4,7 @@ from model.game import Game
 
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "https://codechallenge.boohma.com"}})
+cors = CORS(app, resources={r"/*": {"origins": ["https://codechallenge.boohma.com", "http://localhost:3000"]}})
 
 game = Game()
 

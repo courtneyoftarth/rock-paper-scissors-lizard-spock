@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from model.move import Move
 
-class TestMove(unittest.TestCase):
+class TestMove(TestCase):
     def test_id_is_unique(self):
         move1 = Move("test-move-1")
         move2 = Move("test-move-2")

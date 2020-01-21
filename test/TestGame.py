@@ -1,9 +1,13 @@
-import unittest
-from model.game import Game
+from unittest import TestCase
+from unittest.mock import MagicMock
+from model.game import Game, random
 
 game = Game()
 
-class TestGame(unittest.TestCase):
+class TestGame(TestCase):
+    def setUp(self):
+        random.getRandom = MagicMock(return_value=0)
+
     def test_get_all_moves(self):
         self.assertEqual(len(game.getAllMoves()), 5)
 

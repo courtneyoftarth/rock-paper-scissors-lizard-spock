@@ -1,8 +1,13 @@
-import unittest
+from unittest import TestCase
+from unittest.mock import MagicMock
 import json
-from controller import app
+from controller import app, game
+from model.move import Move
 
-class TestController(unittest.TestCase):
+class TestController(TestCase):
+    def setUp(self):
+        game.getRandomMove = MagicMock(return_value=Move('test-move'))
+
     def test_get_choices(self):
         response = app.test_client().get('/choices')
         self.assertEqual(response.status_code, 200)
